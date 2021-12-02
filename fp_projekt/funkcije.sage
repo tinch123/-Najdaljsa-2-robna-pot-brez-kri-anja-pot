@@ -41,9 +41,9 @@ def generiraj_tocke(n):
 # pove ali daljica ij seka daljico lk, kjer so i,j,k,l števila med 0 in n-1.       
 def zasuk(a,b,c):
     A = matrix(RR,3)
-    A[0] = (1, *a)
-    A[1] = (1, *b)
-    A[2] = (1, *c)
+    A[0] = (1, a[0], a[1])
+    A[1] = (1, b[0], b[1])
+    A[2] = (1, c[0], c[1])
     return(det(A))
 
 def seka(a,b,c,d):
@@ -86,11 +86,11 @@ def max_vsota(p, M):
 
     # Izračunamo vrednost vsote.
     vsota = clp.solve()
-    print(f'Vsota povezav je {vsota}')
+    print('Vsota povezav je {}'.format(vsota))
 
     end = time.time()
     cas = end - start
-    print(f"Program porabi {cas}")
+    print("Program porabi {}".format(cas))
 
 
     # In[3]:
@@ -156,11 +156,11 @@ def max_min_povezava(p, M):
 
     # Dobimo dolžino najkrajše uporabljene povezave.
     dolzina2 = clp2.solve()
-    print(f'Dolžina najkrajše uporabljene povezave je {dolzina2}')
+    print('Dolžina najkrajše uporabljene povezave je {}'.format(dolzina2))
 
     end2 = time.time()
     cas2 = end2-start2
-    print(f"Program porabi {cas2}")
+    print("Program porabi {}".format(cas2))
 
 
     # In[6]:
@@ -183,7 +183,7 @@ def max_min_povezava(p, M):
     return (dolzina2, cas2, povezave3, G2)
 
 def pozeni(n):
-    print(f"Poganjam pri n = {n}")
+    print("Poganjam pri n = {}".format(n))
     p, M = generiraj_tocke(n)
     v1, c1, p1, G1 = max_vsota(p, M)
     v2, c2, p2, G2 = max_min_povezava(p, M)

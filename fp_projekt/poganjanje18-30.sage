@@ -6,9 +6,9 @@
 import json
 
 data = {}
-od, do = 3, 9
+od, do = 18, 30
 for n in range(od, do+1, 3): 
     d = pozeni(n) 
     data[n] = d 
-    with open(f"poganjanje{od}-{do}.json", "w") as f: 
+    with open("poganjanje{}-{}.json".format(od, do), "w") as f:
         json.dump(data, f, indent=2)
